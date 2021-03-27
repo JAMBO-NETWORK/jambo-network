@@ -1,0 +1,42 @@
+# General
+.DS_Store
+.project
+__MACOSX/
+*.swp
+*.swo
+*.sw*
+*.un~
+typings/
+.nyc_output/
+release/
+ssl/
+tmp/
+package-lock.json
+jsconfig.json
+yarn.lock
+
+# Dependency directories
+node_modules/
+
+# Docs
+docs/jsdoc/
+
+# Logs
+logs/
+logs.log
+logs.old.log
+npm-debug.log
+yarn-error.log
+stacktrace*
+
+# IDE directories
+.vs/
+.vscode/
+.idea/
+Session.vim
+
+# Project Specific
+run/
+coverage/
+
+# Config files

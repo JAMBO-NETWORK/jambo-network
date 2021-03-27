@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="1920" height="200" >
+<g fill="none" stroke="#092812" stroke-width="5" >
+<path d="M0 180 C600,-320 1320, 500 1920,0"  fill="none"/>
+</g>
+</svg>
