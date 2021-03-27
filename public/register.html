@@ -1,0 +1,177 @@
+<!-- get_header('Page Name','Title')-->
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Jambo</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css?v2021031516233" />
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="./assets/images/logo.png" />
+      <nav>
+        <a href="./index.html">Home</a>
+        <a target="_blank" href="https://api.jambo.network/wp.pdf">White Paper</a>
+        <a class="active">Whitelist Registration</a>
+      </nav>
+    </header>
+    <section class="banner register">
+      <img class="gif" src="./assets/images/banner_register.gif" />
+      <div class="side-remark" style="right: 0">
+        Jambo <span class="inline-line"></span> Polkadot ecosystem project
+      </div>
+      <div class="banner-content" style="grid-template-columns: 3fr 2fr">
+        <div>
+          <p style="font-size: 1.875vw">
+            The first <br />
+            <span style="font-size: 3.9vw"
+              >Polkadot <br />
+              ecosystem project</span
+            >
+            <br />
+            <br />
+            for digital advertising opens<br />
+            for registration!
+          </p>
+          <p
+            style="
+              padding-top: 8%;
+              font-size: 1.25vw;
+              font-weight: 400;
+              line-height: 2.2;
+              font-family: 'NotoSans Regular';
+            "
+          >
+            Please fill in the following blanks and keep in touch with our social channels to update
+            relevant pass subscription information.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="container register-block" style="padding-top: 62.25vw">
+      <div class="content">
+        <div>
+          <span>Your Ethernet chain address:</span>
+          <input id="address" placeholder="Address" />
+        </div>
+        <div>
+          <span>Please join our Telegram: <span>https://t.me/Jambo</span></span>
+          <input id="telegram" placeholder="Username:" />
+        </div>
+        <div>
+          <span>Repost our Twitter announcement and @ take 3 friends:</span>
+          <input id="repostUrl" placeholder="Url:" />
+        </div>
+        <div>
+          <span>Please follow us on Twitter: <span>https://twitter.com/Jambo</span></span>
+          <input id="twitter" placeholder="Username:" />
+        </div>
+        <div class="button-container">
+          <div class="button" onclick="register()">SUBMIT</div>
+        </div>
+      </div>
+    </section>
+    <div class="divider-line" style="width: 100%; margin-bottom: 3vw"></div>
+    <footer>
+      <div>
+        <img src="./assets/images/logo.png" />
+      </div>
+      <div>
+        <h5>About Jambo</h5>
+        <a href="./index.html#spotlights">Advantages of Jambo</a>
+        <a href="./index.html#faq">FAQ</a>
+        <a href="./index.html#passEconomy">Pass economy</a>
+      </div>
+      <div>
+        <h5>Community</h5>
+        <a href="https://github.com/JAMBO-NETWORK">Github</a>
+        <a href="https://t.me/Jambonetwork">Telegram</a>
+        <a href="https://twitter.com/Jambo_Network">Twitter</a>
+        <a href="https://medium.com/@jambonetofficial/">Medium</a>
+      </div>
+      <div>
+        <h5>Technology</h5>
+        <a href="./index.html#technologyMap">Technology map</a>
+        <a target="_blank" href="https://api.jambo.network/wp.pdf">White Paper</a>
+        <a href="./index.html#roadmap">Road map</a>
+      </div>
+      <div>
+        <h5>Contact US</h5>
+        <a
+          href="mailto:JamboNetofficial@gmail.com"
+          onclick="alert('Please contact JamboNetofficial@gmail.com')"
+          >Business cooperation</a
+        >
+        <a
+          href="mailto:JamboNetofficial@gmail.com"
+          onclick="alert('Please contact JamboNetofficial@gmail.com')"
+          >Question feedback</a
+        >
+      </div>
+    </footer>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js?v202103101059"></script>
+    <script>
+      function register() {
+        var address = $('#address').val()
+        var repostUrl = $('#repostUrl').val()
+        var twitter = $('#twitter').val()
+        var telegram = $('#telegram').val()
+
+        if (!address) {
+          return alert('Please input your address')
+        }
+        if (!repostUrl) {
+          return alert('Please input the url of the Twitter announcement ')
+        }
+
+        if (!telegram) {
+          return alert("Please input your telegram's username")
+        }
+
+        if (!twitter) {
+          return alert("Please input your twitter's username")
+        }
+
+        $.ajax({
+          type: 'POST',
+          url: 'https://jambo.network/contact/register',
+          contentType: 'application/json;charset=utf-8',
+          dataType: 'json',
+          data: JSON.stringify({
+            address,
+            repostUrl,
+            twitter,
+            telegram,
+          }),
+          success: function (res) {
+            if (res && res.status == 0) {
+              alert('SUCCESS')
+            }
+          },
+        }).fail(function (result) {
+          alert(result.responseJSON.err_msg)
+        })
+      }
+    </script>
+  </body>
+</html>
+<!-- footer section end -->
